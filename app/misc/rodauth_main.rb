@@ -5,9 +5,6 @@ class RodauthMain < Rodauth::Rails::Auth
     # List of authentication features that are loaded.
     enable :omniauth, :logout, :remember
 
-    puts ENV.fetch('DISCORD_CLIENT_ID', nil)
-    puts ENV.fetch('DISCORD_CLIENT_SECRET', nil)
-
     omniauth_provider :discord, ENV.fetch('DISCORD_CLIENT_ID', nil), ENV.fetch('DISCORD_CLIENT_SECRET', nil), scope: 'email', prompt: 'none'
 
     omniauth_identity_update_hash do
