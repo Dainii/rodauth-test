@@ -1,0 +1,13 @@
+<% unless rodauth.login_form_footer_links.empty? %>
+  <%== rodauth.login_form_footer_links_heading %>
+
+  <ul>
+    <li>
+      <%= button_to "Login via Discord", rodauth.omniauth_request_path(:discord),
+        method: :post, data: { turbo: false }, class: "btn btn-link p-0" %>
+    </li>
+    <% rodauth.login_form_footer_links.sort.each do |_, link, text| %>
+      <li><%= link_to text, link %></li>
+    <% end %>
+  </ul>
+<% end %>

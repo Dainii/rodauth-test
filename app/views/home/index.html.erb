@@ -1,0 +1,7 @@
+ <% if rodauth.logged_in? %>
+    <h4>Hello <%= current_account.email %></h4>
+  
+    <%= button_to "Sign out", rodauth.logout_path, method: :post, class: "button h-button is-rounded is-primary is-raised" %>
+<% else %>
+  <h4>You are not logged in. Please go to <%=link_to "/login", rodauth.login_path %> </h4>
+<% end %>
